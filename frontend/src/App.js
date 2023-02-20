@@ -1,3 +1,4 @@
+import React from 'react';
 import axios from "axios";
 import { useState } from "react";
 
@@ -8,11 +9,11 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Send a request to the server with the prompt
+    setResponse("")
+
     axios
       .post("http://localhost:8080/chat", { prompt })
       .then((res) => {
-        // Update the response state with the server's response
         setResponse(res.data);
       })
       .catch((err) => {
